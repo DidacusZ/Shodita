@@ -31,7 +31,14 @@ client = MongoClient()
 db = client.test
 
 #passwords = ["123456", "root", "admin", "12345", "1234", "password", "qwerty", "1234567", "welcome", "qwerty", "football", "baseball", "1234567890", "anonymous", "abc123"]
-passwords = ["123456", "root", "admin", "12345"]
+#passwords = ["123456", "root", "admin", "12345"]
+passwdfile = open("dic/contraseñas.txt", "r") 
+# modo lectura r  modo escritura w
+passwords = passwdfile.readlines() 
+
+for passwd in passwords:
+	if not passwd:     
+		continue
 
 class colores:
     HEADER = '\033[95m'
@@ -73,7 +80,9 @@ def check_sshBF(ip):
 	paramiko.util.log_to_file("filename.log")
 	fail = 0
 	user="root"
-	for p in passwords:
+	for aaa in passwords:
+		p=aaa.rstrip() 
+		# p evitar saltos de linea
 		ssh = paramiko.SSHClient()
 		ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 		try:
