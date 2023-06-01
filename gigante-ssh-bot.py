@@ -79,7 +79,7 @@ def check_sshBF(ip):
 	print colores.HEADER + "[*][TARGET] SSH connect to " + ip + colores.normal
 	paramiko.util.log_to_file("filename.log")
 	fail = 0
-	user="root"
+	user="ldts"
 	for aaa in passwords:
 		p=aaa.rstrip() 
 		# p evitar saltos de linea
