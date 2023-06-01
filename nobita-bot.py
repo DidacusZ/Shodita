@@ -68,7 +68,8 @@ def banner_grabbing_web(ip_address, port, path='/'):
         banner = str()
         location = None
 
-        if port in [80, 8080, 28017]:
+        #[80, 8080, 28017]:
+        if port in [22]:
             s = socket.socket()
             s.settimeout(timeout)
         elif port == 443:
